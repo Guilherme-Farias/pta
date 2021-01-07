@@ -2,7 +2,7 @@ from socket import *
 from os import path, listdir
 
 #preparação de ambiente
-users = [line.strip().lower() for line in open("D:/Biblioteca/Desktop/pta/pta-server/users.txt", 'r')]
+users = [line.strip() for line in open("D:/Biblioteca/Desktop/pta/pta-server/users.txt", 'r')]
 
 #Criando conexão com o client
 server = socket(AF_INET, SOCK_STREAM)
@@ -21,7 +21,7 @@ while True:
     code = msg.split()
     try:
         if(code[1] == 'CUMP'):
-            if(code[2].lower() in users):
+            if(code[2] in users):
                 returnMsg = 'OK'
                 authenticated = True
             else:
@@ -48,6 +48,7 @@ while True:
                 file = open(file_path, 'r')
                 for line in file.readlines():
                     data += line.strip('\n')
+                file.close()
                 returnMsg = f'ARQ {len(data)} {data}'
             except:
                 returnMsg = 'NOK'
