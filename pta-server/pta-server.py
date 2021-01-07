@@ -6,7 +6,7 @@ users = [line.strip() for line in open("D:/Biblioteca/Desktop/pta/pta-server/use
 
 #Criando conexão com o client
 server = socket(AF_INET, SOCK_STREAM)
-server.bind(('', 15500))
+server.bind(('', 11550))
 server.listen(1)
 
 #Inicializando o server sem nenhum usuário conectado
